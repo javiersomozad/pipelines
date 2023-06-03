@@ -6,10 +6,17 @@ pipeline {
 			label 'master'
 		}
 	}
+    environment {
+        CLAVE = 'valor'
+    }
     stages {
-        stage('Primera fase') {
+        stage('Fase uno') {
+            environment {
+                CLAVE_FASE_UNO = 'Valor de fase uno'
+            }
             steps {
-                echo 'Ejecutando primera fase'
+                echo 'Primer step ejecutado. Mostrando variables'
+                sh 'printenv'
             }
         }
     }
