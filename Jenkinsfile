@@ -18,6 +18,8 @@ pipeline {
             steps {
                 echo 'Primer step ejecutado. Mostrando variables'
                 // sh 'printenv'
+                sh 'echo "CLAVE : $CLAVE"'
+                sh 'echo "CLAVE_FASE_UNO : $CLAVE_FASE_UNO"'
                 sh 'echo "Usuario : $CREDENCIALES_FASE_UNO_USR"'
                 sh 'echo "Pass : $CREDENCIALES_FASE_UNO_PSW"'
                 sh 'echo "Credenciales $CREDENCIALES_FASE_UNO"'
