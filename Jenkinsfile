@@ -7,8 +7,8 @@ pipeline {
 		}
 	}
     parameters {
-        string(name: 'NOMBRE', defaultValue: 'Ruben', description: 'Cual es tu nombre?')
-        text(name: 'APELLIDO', defaultValue: '', description: 'Y tu apellido?')
+        string(name: 'NOMBRE', defaultValue: 'Mario', description: 'Cual es tu nombre?')
+        text(name: 'APELLIDO', defaultValue: 'Moreno', description: 'Y tu apellido?')
         booleanParam(name: 'BOOLEANO', defaultValue: true, description: 'Ejemplo booleano')
         choice(name: 'ELECCION', choices: ['Primero', 'Segundo', 'Tercero'], description: 'Elige')
         password(name: 'PASSWORD', defaultValue: 'secreto', description: 'Indica la contraseña')
@@ -17,7 +17,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo "Hello ${params.NOMBRE}"
-                echo "Biography: ${params.APELLIDO}"
+                echo "Apellido: ${params.APELLIDO}"
                 echo "Toggle: ${params.BOOLEANO}"
                 echo "Choice: ${params.ELECCION}"
                 echo "Password: ${params.PASSWORD}"
