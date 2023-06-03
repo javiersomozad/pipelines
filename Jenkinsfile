@@ -6,10 +6,21 @@ pipeline {
 			label 'master'
 		}
 	}
+    parameters {
+        string(name: 'NOMBRE', defaultValue: 'Ruben', description: 'Cual es tu nombre?')
+        text(name: 'APELLIDO', defaultValue: '', description: 'Y tu apellido?')
+        booleanParam(name: 'BOOLEANO', defaultValue: true, description: 'Ejemplo booleano')
+        choice(name: 'ELECCION', choices: ['Primero', 'Segundo', 'Tercero'], description: 'Elige')
+        password(name: 'PASSWORD', defaultValue: 'secreto', description: 'Indica la contraseña')
+    }
     stages {
-        stage('Primera fase') {
+        stage('Example') {
             steps {
-                echo 'Ejecutando primera fase'
+                echo "Hello ${params.NOMBRE}"
+                echo "Biography: ${params.APELLIDO}"
+                echo "Toggle: ${params.BOOLEANO}"
+                echo "Choice: ${params.ELECCION}"
+                echo "Password: ${params.PASSWORD}"
             }
         }
     }
